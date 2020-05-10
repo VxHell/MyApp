@@ -32,114 +32,127 @@ class HomeView extends StatelessWidget {
           child: Center(
         child: ListView(
           children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height / 1.5,
-              // color: Colors.blue,
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                    image: new AssetImage("lib/assets/starwars1.jpg"),
-                    fit: BoxFit.fill),
-                gradient: LinearGradient(
-                    begin: FractionalOffset.topCenter,
-                    end: FractionalOffset.bottomCenter,
-                    colors: [
-                      Color(0xFF221f1f).withOpacity(0),
-                      Color(0xFF221f1f).withOpacity(0.5),
-                    ]),
-              ), // we can change to be backgroundimage instead
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Container(
-                            height: 50,
-                            width: 50,
-                            child: Image(
-                              image: AssetImage("lib/assets/netflix.png"),
-                            )),
-                        FlatButton(
-                          child: Text(
-                            'Series',
-                            style: topMenuStyle,
+            Stack(
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height / 1.5,
+                  // color: Colors.blue,
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage("lib/assets/starwars1.jpg"),
+                        fit: BoxFit.fill),
+                  ), // we can change to be backgroundimage instead
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Container(
+                                height: 50,
+                                width: 50,
+                                child: Image(
+                                  image: AssetImage("lib/assets/netflix.png"),
+                                )),
+                            FlatButton(
+                              child: Text(
+                                'Series',
+                                style: topMenuStyle,
+                              ),
+                            ),
+                            FlatButton(
+                              child: Text(
+                                'Films',
+                                style: topMenuStyle,
+                              ),
+                            ),
+                            FlatButton(
+                              child: Text(
+                                'My List',
+                                style: topMenuStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height / 1.5,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      gradient: LinearGradient(
+                          begin: FractionalOffset.topCenter,
+                          end: FractionalOffset.bottomCenter,
+                          colors: [
+                            Color(0xFF221f1f).withOpacity(0),
+                            Color(0xFF221f1f).withOpacity(0.7),
+                          ])),
+                ),
+                Baseline(
+                  baseline: MediaQuery.of(context).size.height / 1.6,
+                  baselineType: TextBaseline.alphabetic,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20, bottom: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          FlatButton(
+                            splashColor: Color.fromRGBO(200, 200, 200, 0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(Icons.add, color: Colors.white, size: 30),
+                                Text(
+                                  'My List',
+                                  style: buttonInfoStyle,
+                                )
+                              ],
+                            ),
+                            onPressed: () {},
                           ),
-                        ),
-                        FlatButton(
-                          child: Text(
-                            'Films',
-                            style: topMenuStyle,
+                          FlatButton(
+                            splashColor: Color.fromRGBO(200, 200, 200, 0),
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Play",
+                                  style: TextStyle(color: Colors.black),
+                                )
+                              ],
+                            ),
+                            onPressed: () {},
                           ),
-                        ),
-                        FlatButton(
-                          child: Text(
-                            'My List',
-                            style: topMenuStyle,
+                          FlatButton(
+                            splashColor: Color.fromRGBO(200, 200, 200, 0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.info,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                                Text(
+                                  'Info',
+                                  style: buttonInfoStyle,
+                                )
+                              ],
+                            ),
+                            onPressed: () {
+                              dev.log('log me', name: 'my.app.category');
+                            },
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
                   ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 20, bottom: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  FlatButton(
-                    splashColor: Color.fromRGBO(200, 200, 200, 0),
-                    child: Column(
-                      children: <Widget>[
-                        Icon(Icons.add, color: Colors.white, size: 30),
-                        Text(
-                          'My List',
-                          style: buttonInfoStyle,
-                        )
-                      ],
-                    ),
-                    onPressed: () {},
-                  ),
-                  FlatButton(
-                    splashColor: Color.fromRGBO(200, 200, 200, 0),
-                    color: Colors.white,
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.play_arrow,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          "Play",
-                          style: TextStyle(color: Colors.black),
-                        )
-                      ],
-                    ),
-                    onPressed: () {},
-                  ),
-                  FlatButton(
-                    splashColor: Color.fromRGBO(200, 200, 200, 0),
-                    child: Column(
-                      children: <Widget>[
-                        Icon(
-                          Icons.info,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        Text(
-                          'Info',
-                          style: buttonInfoStyle,
-                        )
-                      ],
-                    ),
-                    onPressed: () {
-                      dev.log('log me', name: 'my.app.category');
-                    },
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             makePreviewWidget("Preview"),
             makePopularWidget("Popular on Netflix"),
@@ -391,20 +404,20 @@ class HomeView extends StatelessWidget {
     for (int i = 0; i < 6; i++) {
       counter++;
       movieList.add(new Container(
-          padding: EdgeInsets.all(5),
-          child: Container(
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.white,
-                )),
-            child: CircleAvatar(
-              radius: 70.0,
-              backgroundImage:
+        padding: EdgeInsets.all(5),
+        child: Container(
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: Colors.white,
+              )),
+          child: CircleAvatar(
+            radius: 70.0,
+            backgroundImage:
                 AssetImage("lib/assets/" + counter.toString() + ".jpg"),
-              ),
-            ),
-          ));
+          ),
+        ),
+      ));
       if (counter == 12) {
         counter = 0;
       }
