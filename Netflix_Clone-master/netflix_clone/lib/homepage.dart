@@ -87,74 +87,79 @@ class HomeView extends StatelessWidget {
                           begin: FractionalOffset.topCenter,
                           end: FractionalOffset.bottomCenter,
                           colors: [
-                            Color(0xFF221f1f).withOpacity(0),
-                            Color(0xFF221f1f).withOpacity(0.7),
+                            Color.fromARGB(1,38,38,38).withOpacity(0),
+                            Color.fromARGB(1,38,38,38).withOpacity(1),
                           ])),
                 ),
                 Baseline(
-                  baseline: MediaQuery.of(context).size.height / 1.6,
+                  baseline: MediaQuery.of(context).size.height / 2.5,
                   baselineType: TextBaseline.alphabetic,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 20, bottom: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          FlatButton(
-                            splashColor: Color.fromRGBO(200, 200, 200, 0),
-                            child: Column(
-                              children: <Widget>[
-                                Icon(Icons.add, color: Colors.white, size: 30),
-                                Text(
-                                  'My List',
-                                  style: buttonInfoStyle,
-                                )
-                              ],
-                            ),
-                            onPressed: () {},
-                          ),
-                          FlatButton(
-                            splashColor: Color.fromRGBO(200, 200, 200, 0),
-                            color: Colors.white,
-                            child: Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.play_arrow,
-                                  color: Colors.black,
+                  child: Column(
+                    verticalDirection: VerticalDirection.down,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(top: 20, bottom: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              FlatButton(
+                                splashColor: Color.fromRGBO(200, 200, 200, 0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(Icons.add, color: Colors.white, size: 30),
+                                    Text(
+                                      'My List',
+                                      style: buttonInfoStyle,
+                                    )
+                                  ],
                                 ),
-                                Text(
-                                  "Play",
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            ),
-                            onPressed: () {},
-                          ),
-                          FlatButton(
-                            splashColor: Color.fromRGBO(200, 200, 200, 0),
-                            child: Column(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.info,
-                                  color: Colors.white,
-                                  size: 30,
+                                onPressed: () {},
+                              ),
+                              FlatButton(
+                                splashColor: Color.fromRGBO(200, 200, 200, 0),
+                                color: Colors.white,
+                                child: Row(
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.black,
+                                    ),
+                                    Text(
+                                      "Play",
+                                      style: TextStyle(color: Colors.black),
+                                    )
+                                  ],
                                 ),
-                                Text(
-                                  'Info',
-                                  style: buttonInfoStyle,
-                                )
-                              ],
-                            ),
-                            onPressed: () {
-                              dev.log('log me', name: 'my.app.category');
-                            },
+                                onPressed: () {},
+                              ),
+                              FlatButton(
+                                splashColor: Color.fromRGBO(200, 200, 200, 0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.info,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                                    Text(
+                                      'Info',
+                                      style: buttonInfoStyle,
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {
+                                  dev.log('log me', name: 'my.app.category');
+                                },
+                              ),
+                            ],
                           ),
-                        ],
                       ),
+                      makePreviewWidget("Previews"),
+                    ],
                   ),
                 ),
               ],
             ),
-            makePreviewWidget("Preview"),
             makePopularWidget("Popular on Netflix"),
             makePopularWidget("Trending Now"),
             makeContinueWatching("Continue Watching for Kalle"),
